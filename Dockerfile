@@ -17,7 +17,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-ENV DB_FILE_NAME=database/local.db
+RUN echo "DB_FILE_NAME=database/local.db" > .env
 
 RUN yarn seed && yarn build
 
