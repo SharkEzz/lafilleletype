@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "seed": "rm -f ./local.db && drizzle-kit push && tsx ./src/db/seeders/seed.ts"
+    "seed": "rm -f ./database/local.db && drizzle-kit push && tsx ./src/db/seeders/seed.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",

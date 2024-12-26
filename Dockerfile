@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN echo "DB_FILE_NAME=file:local.db" > .env
+RUN echo "DB_FILE_NAME=file:./database/local.db" > .env
 
 RUN npm i -g pnpm && pnpm i && pnpm seed && pnpm build
 
