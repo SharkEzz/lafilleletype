@@ -122,7 +122,7 @@ volumes:
 # Additional volumeMounts on the output Deployment definition.
 volumeMounts:
   - name: database
-    mountPath: /app/database/local.db
+    mountPath: /app/database
 # - name: foo
 #   mountPath: "/etc/foo"
 #   readOnly: true
