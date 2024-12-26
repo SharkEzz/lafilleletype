@@ -21,8 +21,6 @@ jobs:
     - name: Build and push Docker images
       uses: docker/build-push-action@v5
       with:
-        context: .
-        target: runner
         push: true
         tags: |
           ghcr.io/sharkezz/lafilleletype:latest
