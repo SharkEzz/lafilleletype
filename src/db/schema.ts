@@ -6,5 +6,6 @@ export const tasks = sqliteTable('tasks', {
   description: text('description', { mode: 'text' }),
   price: real('price'),
   isDone: integer('is_done', { mode: 'boolean' }).notNull().default(false),
-  createdAt: integer('created_at', { mode: 'timestamp' }).notNull().default(new Date()),
 });
+export type SelectTask = typeof tasks.$inferSelect;
+export type InsertTask = typeof tasks.$inferInsert;
