@@ -5,7 +5,7 @@ COPY . .
 
 RUN echo "DB_FILE_NAME=file:local.db" > .env
 
-RUN npm i -g pnpm && pnpm i && pnpm build && pnpm seed
+RUN npm i -g pnpm && pnpm i && pnpm seed && pnpm build
 
 EXPOSE 3000
 
