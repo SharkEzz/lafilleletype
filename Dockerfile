@@ -3,6 +3,8 @@ WORKDIR /app
 
 COPY . .
 
+RUN echo "DB_FILE_NAME=file:local.db" > .env
+
 RUN npm i -g pnpm && pnpm i && pnpm build && pnpm seed
 
 EXPOSE 3000
