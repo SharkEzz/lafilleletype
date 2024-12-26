@@ -3,7 +3,11 @@ import { db } from '@/db';
 import type { SelectTask } from '@/db/schema';
 
 export default async function Home() {
-  const tasks: SelectTask[] = await db.query.tasks.findMany();
+  const tasks: SelectTask[] = await db.query.tasks.findMany({
+    orderBy(fields, operators) {
+      return operators.desc(fields.id);
+    },
+  });
 
   const todoCount = tasks.reduce((prev, curr) => prev + (curr.isDone ? 0 : 1), 0);
   const doneCount = tasks.length - todoCount;
