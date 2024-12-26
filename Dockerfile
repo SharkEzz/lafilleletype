@@ -17,7 +17,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN echo "DB_FILE_NAME=database/local.db" > .env
+ENV DB_FILE_NAME=database/local.db
 
 RUN yarn seed && yarn build
 
@@ -29,7 +29,7 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-RUN echo "DB_FILE_NAME=database/local.db" > .env
+ENV DB_FILE_NAME=database/local.db
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
