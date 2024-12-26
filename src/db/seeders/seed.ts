@@ -1,7 +1,6 @@
 import { db } from '../index';
 import * as schema from '../schema';
-import data from './data.example.json';
-// import data from './data.json';
+import data from './data.json';
 
 async function main() {
   await db.insert(schema.tasks).values(data);
