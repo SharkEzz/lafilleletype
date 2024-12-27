@@ -12,8 +12,17 @@ export default async function Home() {
   const todoCount = tasks.reduce((prev, curr) => prev + (curr.isDone ? 0 : 1), 0);
   const doneCount = tasks.length - todoCount;
 
+  const pinnedTasks = tasks.filter((t) => t.isPinned);
+
   return (
     <>
+      <h2 className="font-bold text-lg mb-4">Épinglés</h2>
+      <div className="grid grid-cols-3 gap-4">
+        {pinnedTasks.map((t) => (
+          <HomeCard task={t} key={t.id} />
+        ))}
+      </div>
+      <hr className="my-6" />
       <div className="flex gap-2 justify-between mb-4">
         <p>{todoCount} trucs à faire pour le moment 👀</p>
         <p>{doneCount} trucs faits</p>

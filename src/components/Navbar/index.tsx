@@ -7,7 +7,7 @@ export function Navbar() {
     <div className="py-4 border-b">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
-          <h1 className="font-bold text-xl">Trucs à faire</h1>
+          <h1 className="font-bold text-2xl">Trucs à faire</h1>
           <span>Pour le type et la fille</span>
         </Link>
         <Link href="/tasks/add">
