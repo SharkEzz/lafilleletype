@@ -15,7 +15,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <div className="sticky top-0 left-0 bg-white shadow">
           <Navbar />
         </div>
-        <div className="container mx-auto my-4">{children}</div>
+        <div className="container mx-auto px-2 my-4">{children}</div>
       </body>
     </html>
   );

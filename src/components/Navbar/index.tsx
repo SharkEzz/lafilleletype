@@ -5,7 +5,7 @@ import { Button } from '../ui/button';
 export function Navbar() {
   return (
     <div className="py-4 border-b">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container px-2 mx-auto flex justify-between items-center">
         <Link href="/">
           <h1 className="font-bold text-2xl">Trucs à faire</h1>
           <span>Pour le type et la fille</span>

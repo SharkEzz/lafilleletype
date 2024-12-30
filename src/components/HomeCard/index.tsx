@@ -8,21 +8,21 @@ import Link from 'next/link';
 import { Button } from '../ui/button';
 
 export function HomeCard({ task }: { task: SelectTask }) {
-  async function markAsDone() {
+  async function markAsDone(): Promise<void> {
     'use server';
 
     await db.update(schema.tasks).set({ isDone: true }).where(eq(schema.tasks.id, task.id));
     revalidatePath('/', 'page');
   }
 
-  async function markAsUndone() {
+  async function markAsUndone(): Promise<void> {
     'use server';
 
     await db.update(schema.tasks).set({ isDone: false }).where(eq(schema.tasks.id, task.id));
     revalidatePath('/', 'page');
   }
 
-  async function togglePinTask() {
+  async function togglePinTask(): Promise<void> {
     'use server';
 
     await db.update(schema.tasks).set({ isPinned: !task.isPinned }).where(eq(schema.tasks.id, task.id));
