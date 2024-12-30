@@ -8,7 +8,7 @@ export function Navbar() {
       <div className="container px-2 mx-auto flex justify-between items-center">
         <Link href="/">
           <h1 className="font-bold text-2xl">Trucs à faire</h1>
-          <span>Pour le type et la fille</span>
+          <span>Pour baby et poupée</span>
         </Link>
         <Link href="/tasks/add">
           <Button>
