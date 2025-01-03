@@ -5,7 +5,7 @@ import { ResponsiveGrid } from './ResponsiveGrid';
 
 export function PinnedTasks({ tasks }: { tasks: SelectTask[] }) {
   return (
-    <Accordion type="single" collapsible className="mb-6">
+    <Accordion type="single" collapsible defaultValue="pinned" className="mb-6">
       <AccordionItem value="pinned">
         <AccordionTrigger>
           <h2 className="font-bold text-lg">Épinglés</h2>
