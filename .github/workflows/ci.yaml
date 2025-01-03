@@ -44,5 +44,5 @@ jobs:
           --install
           --atomic
           --create-namespace
-          --set-string image.tag=latest
+          --cleanup-on-fail
           --namespace lafilleletype lafilleletype helm
