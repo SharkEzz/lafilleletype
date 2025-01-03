@@ -4,6 +4,9 @@ import { ResponsiveGrid } from '@/components/Pages/Home/ResponsiveGrid';
 import { db } from '@/db';
 import type { SelectTask } from '@/db/schema';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function Home() {
   const tasks: SelectTask[] = await db.query.tasks.findMany({
     orderBy(fields, { desc }) {
