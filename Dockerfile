@@ -1,22 +1,16 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN \
-    if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-    elif [ -f package-lock.json ]; then npm ci; \
-    elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i; \
-    else echo "Lockfile not found." && exit 1; \
-    fi
-
+# Install dependencies
+COPY package.json pnpm-lock.yaml ./
+RUN npm i -g pnpm && pnpm i
 
 FROM node:22-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN yarn seed && yarn build
+RUN npm run build
 
 FROM node:22-alpine AS runner
 
@@ -39,7 +33,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # Container metadata
 EXPOSE 3000
-VOLUME [ "/app/database" ]
+VOLUME "/app/database"
 
 # Start command
 CMD ["node", "server.js"]
