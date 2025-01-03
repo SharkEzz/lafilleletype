@@ -56,21 +56,25 @@ export function HomeCard({ task }: { task: SelectTask }) {
       </div>
       <div className="border-t p-3 text-sm flex justify-between items-center">
         <div>
-          <p>
-            Prix : <span className="font-medium">{task.price ? `${task.price} €` : 'N/A'}</span>
-          </p>
+          {task.price != null && (
+            <p>
+              Prix : <span className="font-medium">{task.price} €</span>
+            </p>
+          )}
         </div>
-        {task.isDone ? (
-          <Button type="button" size="xs" variant="outline" onClick={markAsUndone}>
-            <X />
-            Marquer comme non fait
-          </Button>
-        ) : (
-          <Button type="button" size="xs" variant="outline" onClick={markAsDone}>
-            <Check />
-            Marquer comme fait
-          </Button>
-        )}
+        <Button type="button" size="xs" variant="outline" onClick={task.isDone ? markAsUndone : markAsDone}>
+          {task.isDone ? (
+            <>
+              <X />
+              Marquer comme non fait
+            </>
+          ) : (
+            <>
+              <Check />
+              Marquer comme fait
+            </>
+          )}
+        </Button>
       </div>
     </div>
   );
